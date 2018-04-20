@@ -1,0 +1,13 @@
+#!/bin/bash
+function checkprocess(){
+    if (ps aux|grep -v grep|grep "$1" )
+    then
+        echo "active"
+    else
+        echo "miss"
+        #echo $1
+        php $1 &
+    fi
+}
+
+cd /opt/www/jiafuyun_api/
